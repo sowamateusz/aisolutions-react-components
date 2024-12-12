@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import Input, { InputType } from './Input';
 import Button, { ButtonVariant } from './Button';
+import clsx from 'clsx';
 
 export interface SimpleSearchFormProps {
   onSubmit: (data: { query: string }) => void;
+  className?: string;
 }
 
-const SimpleSearchForm: React.FC<SimpleSearchFormProps> = ({ onSubmit }) => {
+const SimpleSearchForm: React.FC<SimpleSearchFormProps> = ({
+  onSubmit,
+  className,
+}) => {
   const [query, setQuery] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -18,7 +23,7 @@ const SimpleSearchForm: React.FC<SimpleSearchFormProps> = ({ onSubmit }) => {
     handleSubmit({ preventDefault: () => {} } as React.FormEvent);
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-4">
+    <form onSubmit={handleSubmit} className={clsx('flex gap-4', className)}>
       <div>
         <Input
           value={query}
