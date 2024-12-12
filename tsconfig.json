@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Zmieniono z ES5 na ES6 dla lepszej kompatybilności z nowoczesnymi środowiskami
+    "module": "ESNext",
+    "jsx": "react-jsx", // Użyto 'react-jsx' dla lepszej integracji z React 17+
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "outDir": "dist",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node", // Zmieniono z 'bundler' na 'node' dla lepszej kompatybilności
+    "resolveJsonModule": true, // Umożliwia importowanie plików JSON
+    "isolatedModules": true // Kompatybilność z narzędziami bundlingowymi
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
