@@ -24,6 +24,32 @@ npm install aisolutions-react-components
 
 ---
 
+## Usage
+
+### Example
+
+```tsx
+import React from 'react';
+import { SimpleSearchForm } from 'aisolutions-react-components';
+
+const App = () => {
+  const handleSubmit = (data: { query: string }) => {
+    console.log('Searching:', data);
+  };
+
+  return (
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">My App</h1>
+      <SimpleSearchForm onSubmit={handleSubmit} className="p-4" />
+    </div>
+  );
+};
+
+export default App;
+```
+
+---
+
 ## Development
 
 If you want to contribute or develop the library further, follow these steps:
