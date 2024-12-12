@@ -38,7 +38,7 @@ If you want to contribute or develop the library further, follow these steps:
 Clone the repository:
 
 ```bash
-git clone https://github.com/aisolutions-react-components.git
+git clone https://github.com/sowamateusz/aisolutions-react-components.git
 cd aisolutions-react-components
 ```
 
