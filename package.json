@@ -2,9 +2,9 @@
   "name": "aisolutions-react-components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sowamateusz/aisolutions-react-components.git"
+    "url": "git+https://github.com/sowamateusz/aisolutions-react-components.git"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
