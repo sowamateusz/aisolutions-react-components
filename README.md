@@ -114,6 +114,72 @@ npm run type-check
 
 ---
 
+## Publishing or Updating the Package on npm
+
+### Prerequisites
+
+- Ensure you have an npm account. If not, [create one](https://www.npmjs.com/signup).
+- Make sure you are an owner or maintainer of the `aisolutions-react-components` package on npm.
+- Confirm you have Node.js and npm installed.
+
+### Steps to Publish a New Version
+
+1. **Update Version Number**:  
+   Open `package.json` and update the `version` field according to [semantic versioning](https://semver.org/). For example, if you're making a minor update, increment the minor version:
+
+   ```json
+   {
+     "name": "aisolutions-react-components",
+     "version": "1.1.0",
+     ...
+   }
+   ```
+
+2. **Build the Package**:  
+   Before publishing, ensure the package is properly built and all tests pass:
+
+   ```bash
+   npm run build
+   npm test
+   ```
+
+3. **Login to npm** (if not already logged in):
+
+   ```bash
+   npm login
+   ```
+
+   Follow the prompts to enter your username, password, and email.
+
+4. **Publish to npm**:
+   ```bash
+   npm publish --access public
+   ```
+   This command publishes the current version of the package to npm. The `--access public` flag ensures that the package is publicly accessible.
+
+### Steps to Update an Existing Version
+
+If you’ve previously published the package and want to push a new version (e.g., after adding features, fixing bugs, or making improvements):
+
+1. **Increment the Version**:  
+   Update the `version` in `package.json` to the next appropriate version.
+
+2. **Build and Test**:  
+   Run the build and tests again to ensure everything is still valid:
+
+   ```bash
+   npm run build
+   ```
+
+3. **Publish the Update**:
+   ```bash
+   npm publish
+   ```
+
+The new version will now be available for installation via npm.
+
+---
+
 ## Contributing
 
 Contributions are welcome! To contribute:
