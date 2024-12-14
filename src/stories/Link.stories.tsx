@@ -5,7 +5,7 @@ const meta: Meta<typeof Link> = {
   title: 'Text/Link',
   component: Link,
   argTypes: {
-    label: {
+    text: {
       control: { type: 'text' },
     },
     href: {
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof Link>;
 
 export const Default: Story = {
   args: {
-    label: 'Primary',
+    text: 'Example link',
     href: 'https://example.com',
     target: '_blank',
     variant: LinkVariant.Primary,

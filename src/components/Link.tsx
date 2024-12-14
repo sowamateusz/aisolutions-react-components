@@ -9,21 +9,19 @@ export enum LinkVariant {
 }
 
 export interface LinkProps {
-  label: string;
+  text: string;
   href: string;
   target?: string;
   variant?: LinkVariant;
   className?: string;
-  onClick: () => void;
 }
 
 const Link: React.FC<LinkProps> = ({
-  label,
+  text,
   href,
   target = '_self',
   variant = LinkVariant.Primary,
   className,
-  onClick,
 }) => {
   const variantStyles =
     variant === 'secondary'
@@ -38,9 +36,8 @@ const Link: React.FC<LinkProps> = ({
         variantStyles,
         className
       )}
-      onClick={onClick}
     >
-      {label}
+      {text}
     </a>
   );
 };
