@@ -18,7 +18,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ['react', 'react-dom', 'tailwindcss', '@headlessui/react', 'clsx'],
+  external: ['react', 'react-dom', '@headlessui/react'],
   plugins: [
     peerDepsExternal(),
     resolve({

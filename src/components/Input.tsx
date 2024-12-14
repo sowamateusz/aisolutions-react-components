@@ -1,7 +1,6 @@
 import React from 'react';
 import { Input as HeadlessInput } from '@headlessui/react';
 import clsx from 'clsx';
-import '../styles.css';
 
 export enum InputVariant {
   Default = 'default',

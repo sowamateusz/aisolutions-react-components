@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../styles.css';
 import clsx from 'clsx';
 
 export enum LinkVariant {
@@ -12,7 +11,7 @@ export interface LinkProps {
   text: string;
   href: string;
   target?: string;
-  variant?: LinkVariant;
+  variant?: string;
   className?: string;
 }
 

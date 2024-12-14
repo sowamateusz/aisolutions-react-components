@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button as HeadlessButton } from '@headlessui/react';
-import '../styles.css';
 import clsx from 'clsx';
 
 export enum ButtonVariant {
