@@ -3,6 +3,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 export default {
   input: 'src/index.ts',
@@ -32,10 +34,9 @@ export default {
       exclude: ['**/*.stories.tsx'],
     }),
     postcss({
-      extract: true,
+      plugins: [tailwindcss(), autoprefixer()],
       minimize: true,
       sourceMap: true,
-      extensions: ['.css', '.scss'],
     }),
   ],
 };
