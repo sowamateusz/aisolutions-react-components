@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/sowamateusz/aisolutions-react-components.git"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -21,7 +21,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "aisolutions-react-components is a versatile library of reusable React components designed for modern web applications.",
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "autoprefixer": "^10.4.20",
