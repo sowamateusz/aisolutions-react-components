@@ -11,6 +11,10 @@ type Story = StoryObj<typeof SimpleSearchForm>;
 
 export const Default: Story = {
   args: {
-    onSubmit: (data) => alert(`Searching for: ${JSON.stringify(data.query)}`),
+    onSubmit: (data) => {
+      if (data && data.query && data.query.length > 0) {
+        alert(`Searching for: ${data.query}`);
+      }
+    },
   },
 };

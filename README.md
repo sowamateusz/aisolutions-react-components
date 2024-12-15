@@ -1,32 +1,40 @@
 # aisolutions-react-components
 
-## Description
+## Overview
 
-`aisolutions-react-components` is a library of reusable React components built with TypeScript. It includes components such as buttons, inputs, and forms, styled with TailwindCSS and optimized for modern React applications. This package is designed to be a starting point for building and scaling component libraries.
+`aisolutions-react-components` is a library of reusable React components built with TypeScript. These components, including buttons, inputs, and forms, are styled with TailwindCSS and optimized for modern React applications. This package provides a robust starting point for creating and scaling component libraries.
 
 ## Features
 
-- **Reusable Components**: Includes customizable components like `Button`, `Input`, and `SimpleSearchForm`.
-- **TailwindCSS Styling**: Pre-styled with TailwindCSS for quick integration.
-- **TypeScript Support**: Fully typed for safer and more predictable development.
-- **Storybook Integration**: Includes Storybook for component visualization and documentation.
-- **Rollup Build**: Outputs optimized ES modules and CommonJS builds.
+- **Customizable Components**: Includes `Text`, `Link`, `Button`, `Input`, and `SimpleSearchForm`.
+- **TailwindCSS Styling**: Pre-styled components for seamless integration.
+- **TypeScript Ready**: Fully typed for enhanced development safety.
+- **Storybook Support**: Component visualization and documentation.
+- **Optimized Builds**: Rollup configuration for ES modules and CommonJS outputs.
 
----
+## Components
+
+### Form / Button
+
+A flexible and customizable button component styled with TailwindCSS.
+
+### Form / Input
+
+A versatile input component supporting various types, validations, and styles.
+
+### Component / SimpleSearchForm
+
+A search form component with built-in input validation for streamlined search functionality.
 
 ## Installation
 
-To install the library, use:
+Install the library with:
 
 ```bash
 npm install aisolutions-react-components
 ```
 
----
-
-## Usage
-
-### Example
+## Usage Example
 
 ```tsx
 import React from 'react';
@@ -48,154 +56,102 @@ const App = () => {
 export default App;
 ```
 
----
-
 ## Development
 
-If you want to contribute or develop the library further, follow these steps:
+Follow these steps to contribute or develop the library:
 
 ### Prerequisites
 
 - Node.js (>= 16.0.0)
 - npm (>= 7.0.0)
 
-### Cloning the Repository
+### Getting Started
 
-Clone the repository:
+1. Clone the repository:
 
-```bash
-git clone https://github.com/sowamateusz/aisolutions-react-components.git
-cd aisolutions-react-components
-```
+   ```bash
+   git clone https://github.com/sowamateusz/aisolutions-react-components.git
+   cd aisolutions-react-components
+   ```
 
-### Install Dependencies
+2. Install dependencies:
 
-Run:
-
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 ### Scripts
 
-#### Build the Library
+- **Build the Library**:
 
-To build the library for production:
+  ```bash
+  npm run build
+  ```
 
-```bash
-npm run build
-```
+- **Run Storybook**:
 
-This will generate the output in the `dist` folder.
+  ```bash
+  npm run storybook
+  ```
 
-#### Run Storybook
+- **Type Checking**:
+  ```bash
+  npm run type-check
+  ```
 
-To start Storybook for component development and visualization:
-
-```bash
-npm run storybook
-```
-
-#### Build Storybook
-
-To generate a static build of Storybook:
-
-```bash
-npm run build-storybook
-```
-
-#### Type Checking
-
-To ensure TypeScript types are valid:
-
-```bash
-npm run type-check
-```
-
----
-
-## Publishing or Updating the Package on npm
+## Publishing to npm
 
 ### Prerequisites
 
-- Ensure you have an npm account. If not, [create one](https://www.npmjs.com/signup).
-- Make sure you are an owner or maintainer of the `aisolutions-react-components` package on npm.
-- Confirm you have Node.js and npm installed.
+- An npm account ([Sign up here](https://www.npmjs.com/signup))
+- Ownership or maintenance rights to the `aisolutions-react-components` package.
 
-### Steps to Publish a New Version
+### Publishing Steps
 
-1. **Update Version Number**:  
-   Open `package.json` and update the `version` field according to [semantic versioning](https://semver.org/). For example, if you're making a minor update, increment the minor version:
+1. **Update Version**:
+   Modify the `version` in `package.json` according to [semantic versioning](https://semver.org/).
 
-   ```json
-   {
-     "name": "aisolutions-react-components",
-     "version": "1.1.0",
-     ...
-   }
-   ```
-
-2. **Build the Package**:  
-   Before publishing, ensure the package is properly built and all tests pass:
+2. **Build and Test**:
 
    ```bash
    npm run build
-   npm test
    ```
 
-3. **Login to npm** (if not already logged in):
+3. **Login to npm**:
 
    ```bash
    npm login
    ```
 
-   Follow the prompts to enter your username, password, and email.
-
-4. **Publish to npm**:
+4. **Publish the Package**:
    ```bash
    npm publish --access public
    ```
-   This command publishes the current version of the package to npm. The `--access public` flag ensures that the package is publicly accessible.
 
-### Steps to Update an Existing Version
+### Updating Existing Versions
 
-If you’ve previously published the package and want to push a new version (e.g., after adding features, fixing bugs, or making improvements):
-
-1. **Increment the Version**:  
-   Update the `version` in `package.json` to the next appropriate version.
-
-2. **Build and Test**:  
-   Run the build and tests again to ensure everything is still valid:
-
+1. Increment the version in `package.json`.
+2. Rebuild and verify:
    ```bash
    npm run build
    ```
-
-3. **Publish the Update**:
+3. Publish the update:
    ```bash
    npm publish
    ```
 
-The new version will now be available for installation via npm.
-
----
-
 ## Contributing
 
-Contributions are welcome! To contribute:
+We welcome contributions! To get started:
 
 1. Fork the repository.
 2. Create a feature branch.
-3. Submit a pull request with a clear description of your changes.
-
----
+3. Submit a pull request with detailed changes.
 
 ## License
 
 This project is licensed under the ISC License. See the LICENSE file for details.
 
----
-
 ## Questions
 
-If you have any questions or feedback, feel free to open an issue on GitHub or contact the author.
+For questions or feedback, open an issue on GitHub or contact the author.

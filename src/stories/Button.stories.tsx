@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Button, { ButtonVariant } from '../components/Button';
+import Button from '../components/Button';
 
 const meta: Meta<typeof Button> = {
   title: 'Forms/Button',
@@ -25,7 +25,7 @@ export const Default: Story = {
   args: {
     label: 'Primary',
     onClick: () => alert('Clicked!'),
-    variant: ButtonVariant.Primary,
+    variant: 'primary',
     disabled: false,
   },
 };

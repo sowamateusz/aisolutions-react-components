@@ -1,44 +1,52 @@
-import React from 'react';
-
+import React, { FC } from 'react';
 import clsx from 'clsx';
 
-export enum LinkVariant {
-  Primary = 'primary',
-  Secondary = 'secondary',
-}
+export type LinkVariant = 'primary' | 'secondary';
 
 export interface LinkProps {
-  text: string;
+  children: React.ReactNode;
   href: string;
-  target?: string;
-  variant?: string;
+  target?: '_self' | '_blank' | '_parent' | '_top';
+  variant?: LinkVariant;
   className?: string;
+  rel?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-const Link: React.FC<LinkProps> = ({
-  text,
-  href,
-  target = '_self',
-  variant = LinkVariant.Primary,
-  className,
-}) => {
-  const variantStyles =
-    variant === 'secondary'
-      ? 'text-gray-700 hover:text-blue-500 underline'
-      : 'text-blue-500 underline';
-  return (
-    <a
-      href={href}
-      target={target}
-      className={clsx(
-        'font-medium focus:outline-none',
-        variantStyles,
-        className
-      )}
-    >
-      {text}
-    </a>
-  );
+const variantClasses: Record<LinkVariant, string> = {
+  primary: 'text-blue-500 underline hover:text-blue-600',
+  secondary: 'text-gray-700 underline hover:text-blue-500',
 };
+
+const Link: FC<LinkProps> = React.memo(
+  ({
+    children,
+    href,
+    target = '_self',
+    variant = 'primary',
+    className,
+    rel,
+    onClick,
+    ...rest
+  }) => {
+    const isExternal = target === '_blank';
+    return (
+      <a
+        href={href}
+        target={target}
+        rel={isExternal ? 'noopener noreferrer' : rel}
+        className={clsx(
+          'font-medium underline focus:outline-none transition-colors duration-200',
+          variantClasses[variant],
+          className
+        )}
+        onClick={onClick}
+        {...rest}
+      >
+        {children}
+      </a>
+    );
+  }
+);
 
 export default Link;

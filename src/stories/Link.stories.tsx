@@ -1,34 +1,49 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Link, { LinkVariant } from '../components/Link';
+import Link from '../components/Link';
 
 const meta: Meta<typeof Link> = {
   title: 'Text/Link',
   component: Link,
   argTypes: {
-    text: {
-      control: { type: 'text' },
+    children: {
+      control: 'text',
     },
     href: {
       control: { type: 'text' },
     },
     target: {
-      control: { type: 'text' },
+      control: {
+        type: 'select',
+        options: ['_self', '_blank', '_parent', '_top'],
+      },
     },
     variant: {
-      options: ['primary', 'secondary'],
       control: { type: 'inline-radio' },
+      options: ['primary', 'secondary'],
+    },
+    rel: {
+      control: { type: 'text' },
+    },
+    className: {
+      control: { type: 'text' },
+    },
+    onClick: {
+      action: 'clicked',
     },
   },
 };
+
 export default meta;
 
 type Story = StoryObj<typeof Link>;
 
 export const Default: Story = {
   args: {
-    text: 'Example link',
+    children: 'Visit Example.com',
     href: 'https://example.com',
     target: '_blank',
-    variant: LinkVariant.Primary,
+    variant: 'primary',
+    rel: '',
+    className: '',
   },
 };

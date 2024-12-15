@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Input, { InputType, InputVariant } from '../components/Input';
+import Input from '../components/Input';
 
 const meta: Meta<typeof Input> = {
   title: 'Forms/Input',
@@ -17,11 +17,8 @@ const meta: Meta<typeof Input> = {
       control: 'text',
     },
     variant: {
-      options: ['default'],
+      options: ['default', 'outlined', 'filled'],
       control: { type: 'inline-radio' },
-    },
-    disabled: {
-      control: { type: 'boolean' },
     },
   },
 };
@@ -31,10 +28,10 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    type: InputType.Text,
+    type: 'text',
     value: '',
     placeholder: 'Enter text here',
-    variant: InputVariant.Default,
+    variant: 'default',
     disabled: false,
   },
   render: (args) => {

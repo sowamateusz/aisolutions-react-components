@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Input, { InputType } from './Input';
-import Button, { ButtonVariant } from './Button';
+import Input from './Input';
+import Button from './Button';
 import clsx from 'clsx';
 
 export interface SimpleSearchFormProps {
@@ -23,22 +23,21 @@ const SimpleSearchForm: React.FC<SimpleSearchFormProps> = ({
     handleSubmit({ preventDefault: () => {} } as React.FormEvent);
 
   return (
-    <form onSubmit={handleSubmit} className={clsx('flex gap-4', className)}>
+    <form onSubmit={handleSubmit} className={clsx('flex gap-2', className)}>
       <div>
         <Input
           value={query}
           onChange={setQuery}
-          placeholder="Search query"
-          type={InputType.Text}
+          placeholder="Search query..."
+          type="text"
           className="w-96"
         />
       </div>
-
       <div className="flex gap-2">
         <Button label="Search" onClick={handleButtonClick} />
         <Button
           label="Reset"
-          variant={ButtonVariant.Secondary}
+          variant="secondary"
           onClick={() => setQuery('')}
         />
       </div>

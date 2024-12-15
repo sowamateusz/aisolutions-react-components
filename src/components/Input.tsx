@@ -1,19 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Input as HeadlessInput } from '@headlessui/react';
 import clsx from 'clsx';
 
-export enum InputVariant {
-  Default = 'default',
-}
+export type InputVariant = 'default' | 'outlined' | 'filled';
+export type InputType = 'text' | 'password' | 'email';
 
-export enum InputType {
-  Text = 'text',
-  Password = 'password',
-  Email = 'email',
-}
-
-export interface InputProps {
-  type: InputType;
+interface InputProps {
+  id?: string;
+  type?: InputType;
   value: string;
   placeholder?: string;
   disabled?: boolean;
@@ -22,30 +16,45 @@ export interface InputProps {
   onChange: (value: string) => void;
 }
 
-const Input: React.FC<InputProps> = ({
-  type = InputType.Text,
-  value,
-  placeholder = 'Placeholder text',
-  disabled,
-  variant = InputVariant.Default,
-  className,
-  onChange,
-}) => {
-  const variantStyles = variant === 'default' ? '' : '';
-  return (
-    <HeadlessInput
-      type={type}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
-      disabled={disabled}
-      className={clsx(
-        'border border-gray-300 rounded px-4 py-2 ountline-none focus:outline-none',
-        variantStyles,
-        className
-      )}
-    />
-  );
+const variantClasses: Record<InputVariant, string> = {
+  default: 'bg-white border border-gray-400',
+  outlined: 'border-2 border-gray-300',
+  filled: 'bg-gray-100 border border-gray-300',
 };
+
+const Input: React.FC<InputProps> = React.memo(
+  ({
+    id,
+    type = 'text',
+    value,
+    placeholder = 'Enter text',
+    disabled = false,
+    variant = 'default',
+    className,
+    onChange,
+  }) => {
+    const handleChange = useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange(e.target.value);
+      },
+      [onChange]
+    );
+    return (
+      <HeadlessInput
+        id={id}
+        type={type}
+        value={value}
+        onChange={handleChange}
+        placeholder={placeholder}
+        disabled={disabled}
+        className={clsx(
+          'rounded-lg px-3 py-2 text-gray-700 placeholder:text-gray-400 border hover:border-gray-700 focus:border-gray-700 focus:outline-none disabled:bg-gray-200 disabled:cursor-not-allowed',
+          variantClasses[variant],
+          className
+        )}
+      />
+    );
+  }
+);
 
 export default Input;
