@@ -8,41 +8,40 @@ export interface SimpleSearchFormProps {
   className?: string;
 }
 
-const SimpleSearchForm: React.FC<SimpleSearchFormProps> = ({
-  onSubmit,
-  className,
-}) => {
-  const [query, setQuery] = useState<string>('');
+const SimpleSearchForm: React.FC<SimpleSearchFormProps> = React.memo(
+  ({ onSubmit, className }) => {
+    const [query, setQuery] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit({ query });
-  };
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      onSubmit({ query });
+    };
 
-  const handleButtonClick = () =>
-    handleSubmit({ preventDefault: () => {} } as React.FormEvent);
+    const handleButtonClick = () =>
+      handleSubmit({ preventDefault: () => {} } as React.FormEvent);
 
-  return (
-    <form onSubmit={handleSubmit} className={clsx('flex gap-2', className)}>
-      <div>
-        <Input
-          value={query}
-          onChange={setQuery}
-          placeholder="Search query..."
-          type="text"
-          className="w-96"
-        />
-      </div>
-      <div className="flex gap-2">
-        <Button label="Search" onClick={handleButtonClick} />
-        <Button
-          label="Reset"
-          variant="secondary"
-          onClick={() => setQuery('')}
-        />
-      </div>
-    </form>
-  );
-};
+    return (
+      <form onSubmit={handleSubmit} className={clsx('flex gap-2', className)}>
+        <div>
+          <Input
+            value={query}
+            onChange={setQuery}
+            placeholder="Search query..."
+            type="text"
+            className="w-96"
+          />
+        </div>
+        <div className="flex gap-2">
+          <Button label="Search" onClick={handleButtonClick} />
+          <Button
+            label="Reset"
+            variant="secondary"
+            onClick={() => setQuery('')}
+          />
+        </div>
+      </form>
+    );
+  }
+);
 
 export default SimpleSearchForm;

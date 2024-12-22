@@ -6,7 +6,7 @@
 
 ## Features
 
-- **Customizable Components**: Includes `Text`, `Link`, `Button`, `Input`, and `SimpleSearchForm`.
+- **Customizable Components**: Includes `Text`, `Link`, `Button`, `Input`, `Pagination`, `List`, `Select`, and `SimpleSearchForm`.
 - **TailwindCSS Styling**: Pre-styled components for seamless integration.
 - **TypeScript Ready**: Fully typed for enhanced development safety.
 - **Storybook Support**: Component visualization and documentation.
