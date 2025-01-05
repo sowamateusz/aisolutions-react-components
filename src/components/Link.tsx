@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 
 export type LinkVariant = 'primary' | 'secondary';
@@ -18,7 +18,7 @@ const variantClasses: Record<LinkVariant, string> = {
   secondary: 'text-gray-700 underline hover:text-blue-500',
 };
 
-const Link: FC<LinkProps> = React.memo(
+const Link: React.FC<LinkProps> = React.memo(
   ({
     children,
     href,

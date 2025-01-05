@@ -1,14 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 
-export type TextElement = 'p' | 'span';
+export type HeadingElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
-  as?: TextElement;
+  as?: HeadingElement;
 }
 
-const Text: React.FC<TextProps> = React.memo(
-  ({ children, className, as = 'p', ...rest }) => {
+const Heading: React.FC<TextProps> = React.memo(
+  ({ children, className, as = 'h1', ...rest }) => {
     const Component = as;
     return (
       <Component className={clsx(className)} {...rest}>
@@ -18,4 +18,4 @@ const Text: React.FC<TextProps> = React.memo(
   }
 );
 
-export default Text;
+export default Heading;

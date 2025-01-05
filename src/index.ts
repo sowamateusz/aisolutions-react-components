@@ -7,3 +7,4 @@ export { default as Link } from './components/Link';
 export { default as List } from './components/List';
 export { default as Pagination } from './components/Pagination';
 export { default as SimpleSearchForm } from './components/SimpleSearchForm';
+export { default as BlogPost } from './components/Blog/Post';

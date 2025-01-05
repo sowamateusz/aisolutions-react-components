@@ -3,7 +3,7 @@ import Select, { SelectOption } from '../components/Select';
 import { action } from '@storybook/addon-actions';
 
 const meta: Meta<typeof Select> = {
-  title: 'Components/Select',
+  title: 'Forms/Select',
   component: Select,
   argTypes: {
     id: {
