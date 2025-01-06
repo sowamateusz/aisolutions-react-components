@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import BlogList, { BlogListProps } from '../../components/Blog/List';
-import { samplePosts } from '../data';
+import { samplePosts } from '../sampleData';
 
 const meta: Meta<typeof BlogList> = {
   title: 'Blog/BlogList',

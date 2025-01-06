@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import BlogPost from '../../components/Blog/Post';
-import { sampleComments, sampleTags } from '../data';
+import { sampleComments, sampleTags } from '../sampleData';
 
 const meta: Meta<typeof BlogPost> = {
   title: 'Blog/BlogPost',

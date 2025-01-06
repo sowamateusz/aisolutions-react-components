@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import BlogTags, { BlogTagsProps } from '../../components/Blog/Tags';
-import { sampleTags } from '../data';
+import { sampleTags } from '../sampleData';
 
 const meta: Meta<BlogTagsProps> = {
   title: 'Blog/BlogTags',
@@ -8,7 +8,7 @@ const meta: Meta<BlogTagsProps> = {
   argTypes: {
     tags: {
       control: 'object',
-      description: 'Tablica tagów do wyświetlenia',
+      description: 'Array of tags to display',
       table: {
         type: { summary: 'BlogTagsItemProps[]' },
         defaultValue: { summary: '[]' },
@@ -31,6 +31,6 @@ type Story = StoryObj<BlogTagsProps>;
 export const Default: Story = {
   args: {
     tags: sampleTags,
-    className: 'my-custom-class',
+    className: '',
   },
 };
