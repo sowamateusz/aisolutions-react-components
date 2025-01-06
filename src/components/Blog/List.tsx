@@ -9,7 +9,7 @@ export interface BlogListProps {
 
 const BlogList = React.memo(({ posts, className }: BlogListProps) => {
   return (
-    <div className={clsx('space-y-4', className)}>
+    <div className={clsx('space-y-2', className)}>
       {posts.map((post, index) => (
         <BlogListItem
           key={index}
