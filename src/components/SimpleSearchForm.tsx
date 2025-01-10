@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Input from './Input';
 import Button from './Button';
 import clsx from 'clsx';
+import { DataConnectorContext } from './DataConnector';
 
 export interface SimpleSearchFormProps {
-  onSubmit: (data: { query: string }) => void;
+  onSubmit?: (data: { query: string }) => void;
   className?: string;
 }
 
 const SimpleSearchForm: React.FC<SimpleSearchFormProps> = React.memo(
   ({ onSubmit, className }) => {
-    const [query, setQuery] = useState<string>('');
+    const context = useContext(DataConnectorContext);
+    const [localQuery, setLocalQuery] = useState<string>('');
+
+    const query = context?.query ?? localQuery;
+    const setQuery = context?.setQuery ?? setLocalQuery;
 
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
+      if (!onSubmit) return;
       onSubmit({ query });
     };
 

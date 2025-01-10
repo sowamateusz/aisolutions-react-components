@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
+import { DataConnectorContext } from './DataConnector';
 
 export interface ListItem {
   id: string | number;
@@ -11,46 +12,54 @@ export interface ListItem {
 }
 
 export interface ListProps {
-  items: ListItem[];
+  items?: ListItem[];
   className?: string;
 }
 
-const List: React.FC<ListProps> = React.memo(({ items, className }) => {
-  return (
-    <ul className={clsx('space-y-4', className)}>
-      {items.map((item) => (
-        <li
-          key={item.id}
-          className="flex items-start p-4 bg-white shadow rounded-lg"
-        >
-          {item.image && (
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-16 h-16 object-cover rounded mr-4"
-            />
-          )}
-          <div className="flex-1">
-            {item.itemPath ? (
-              <a href={item.itemPath} className="block">
-                <h3 className="text-lg font-semibold text-blue-600 hover:underline">
+const List: React.FC<ListProps> = React.memo(
+  ({ items: propItems, className }) => {
+    const context = useContext(DataConnectorContext);
+    const items = propItems || context?.items || [];
+    return (
+      <ul className={clsx('space-y-4', className)}>
+        {items.map((item: ListItem) => (
+          <li
+            key={item.id}
+            className="flex items-start p-4 bg-white shadow rounded-lg"
+          >
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-16 h-16 object-cover rounded mr-4"
+              />
+            )}
+            <div className="flex-1">
+              {item.itemPath ? (
+                <a href={item.itemPath} className="block">
+                  <h3 className="text-lg font-semibold text-blue-600 hover:underline">
+                    {item.title}
+                  </h3>
+                </a>
+              ) : (
+                <h3 className="text-lg font-semibold text-neutral-900">
                   {item.title}
                 </h3>
-              </a>
-            ) : (
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-            )}
-            {item.subtitle && <p className="text-gray-600">{item.subtitle}</p>}
-            {item.date && (
-              <p className="text-sm text-gray-500">
-                {new Date(item.date).toLocaleDateString()}
-              </p>
-            )}
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
-});
+              )}
+              {item.subtitle && (
+                <p className="text-gray-600">{item.subtitle}</p>
+              )}
+              {item.date && (
+                <p className="text-sm text-gray-500">
+                  {new Date(item.date).toLocaleDateString()}
+                </p>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+);
 
 export default List;
